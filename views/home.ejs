@@ -6,8 +6,9 @@
 <% blogPosts.forEach((blogPost) =>{ %>
   <div>
     <h2><%= blogPost.title %></h2>
-    <p><%= blogPost.post %></p>
-    <a href="/blog/<%= blogPost.title %>">more...</a>
+    <p><%= blogPost.post.substring(0,100) %> ...
+    <a href="/blog/<%= blogPost.title %>">Read More</a>
+    </p>
   </div>
 <%});%>
 
