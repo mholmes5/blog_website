@@ -47,7 +47,19 @@ app.post("/compose", (req,res)=>{
   blogPosts.push(blog);
 
   res.redirect("/");
-})
+});
+
+app.get("/blog/:post", (req,res)=>{
+  const post = req.params.post;
+  if(blogPosts.some(blog => blog['title'] === post)){
+    console.log("Match Found");
+    res.render("post",{blogTitle:req.params.post});
+  }else{
+    console.log("No Match");
+    res.redirect("/");
+  }
+
+});
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");

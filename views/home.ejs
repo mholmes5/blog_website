@@ -3,11 +3,12 @@
 <h1>Home</h1>
 <p><%= homeStartingContent %></p>
 
-<% for(var i=0; i<blogPosts.length;i++) { %>
+<% blogPosts.forEach((blogPost) =>{ %>
   <div>
-    <h3><%= blogPosts[i].title %></h3>
-    <p><%= blogPosts[i].post %></p>
-  </div>    
-<%}%>
+    <h2><%= blogPost.title %></h2>
+    <p><%= blogPost.post %></p>
+    <a href="/blog/<%= blogPost.title %>">more...</a>
+  </div>
+<%});%>
 
 <%- include('partials/footer'); %>
